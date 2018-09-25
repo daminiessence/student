@@ -1,0 +1,68 @@
+<!-- Modal -->
+<div id="new_student_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade" data-backdrop="static">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+    <%= form_with model: @student,id: 'student_form', local: true do |form| %>
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fa fa-info-circle">   Student Details</i></h4>
+        <button type="button" class="close" data-dismiss="modal">x</button>
+      </div>
+
+      <div class="modal-body" style="height: 450px; overflow-y: auto;">
+        <div class="form-group">
+          <%= form.label :Name, class: 'form-label' %><br>
+          <%= form.text_field :name, class: 'form-control form-control-sm', required: 'required' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :Enrollment_Number, class: 'form-label' %><br>
+          <%= form.text_field :ernumber, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :mobile_no, class: 'form-label' %><br>
+          <%= form.text_field :mobile_no, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :student_email, class: 'form-label' %><br>
+          <%= form.text_field :student_email, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :branch_id, class: 'form-label' %><br>
+          <%= form.select :branch_id, options_for_select(Branch.all.collect { |p| [ p.name, p.id ] }), {:prompt => 'Select'}, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :city_id, class: 'form-label' %><br>
+          <%= form.select :city_id, options_for_select(City.all.collect { |c| [ c.name, c.id ] }), {:prompt => 'Select'}, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :course, class: 'form-label' %>
+          <%= collection_select(:student, :course_ids, @courses, :id, :name, {}, {:multiple => true, class: "form-control"}) %>
+        </div>
+        <div class="input-append date form_datetime">
+          <%= form.label :date_of_birth, class: 'form-label' %><br>
+          <%= form.text_field :date_of_birth, class: "datepicker form-control", size: "16" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :photo, class: 'form-label' %><br>
+          <%= form.file_field :photo, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="form-group">
+          <%= form.submit "Save Details",style: 'color: white;', class: 'fa fa-floppy-o btn btn-dark'%>
+          <button type="button" class=" btn btn-dark btn-sm",style: 'color: white;' data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+</div>

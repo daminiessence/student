@@ -1,0 +1,15 @@
+current directory: /home/damini/Project/student_details/vendor/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+/home/damini/.rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20180810-10146-1gykicy.rb extconf.rb
+creating Makefile
+
+current directory: /home/damini/Project/student_details/vendor/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /home/damini/Project/student_details/vendor/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/damini/Project/student_details/vendor/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20180810-10146-1s6vlmh

@@ -1,0 +1,8 @@
+// $('#popup_modal').html("<%= j render 'form' %>");
+// $('#new_student_modal').modal();
+  // $('#jsRow-' + $(this).data('id')).empty().append('111111111111111');
+  // $("#jsRow-"+"<%#= @student.id %>").empty().append('1111111111');
+
+  // $("#jsEditRow-"+"<%#= @student.id %>").hide();
+  $("#jsRow-"+"<%= @student.id %>").html("<%= j render partial: 'editRow' %>");
+  

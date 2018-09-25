@@ -1,0 +1,55 @@
+<div style="margin:15px;" >
+
+<h1><i class="fa fa-graduation-cap" aria-hidden="true"> Students Details!</i></h1>
+<table class="col-md-6 table table-striped table-bordered">
+  <thead>
+    <th><strong>Name :</strong></th>
+    <th><%= @student.name%></th>
+</thead>
+
+<tbody>
+  <tr>
+    <td><strong>Enrollment_Number :</strong></td>
+    <td><%= @student.ernumber%></td>
+  </tr>
+
+
+  <tr>
+    <td><strong>Mobile_No :</strong></td>
+    <td><%= @student.mobile_no%></td>
+  </tr>
+
+  <tr>
+    <td><strong>student_email :</strong></td>
+    <td><%= @student.student_email%></td>
+  </tr>
+
+  <tr>
+    <td><strong>Branch :</strong></td>
+    <td><%= @student.branch.name%></td>
+  </tr>
+
+  <tr>
+    <td><strong>City :</strong></td>
+    <td><%= @student.city.name%></td>
+  </tr>
+  <tr>
+    <td><strong>Course Name:</strong></td>
+    <td><%= @student.courses.map {|c| c.name}.join(', ') %></td>
+  </tr>
+  <tr>
+    <td><strong>Date Of Birth:</strong></td>
+    <td><%= @student.date_of_birth %></td>
+  </tr>
+  <tr>
+      <td><strong>Student Profile Image :</strong></td>
+      <td><%= image_tag @student.photo.url, size: "50x50"%></td>
+  </tr>
+</tbody>
+</table>
+
+<%= link_to ' Back', students_path,style: 'color: white;', class:'fa fa-arrow-left btn btn-dark'%>
+<%= link_to ' Edit', edit_student_path(@student), style: 'color: white;', class: 'fa fa-pencil-square-o btn btn-dark', remote: true  %>
+
+
+</div>

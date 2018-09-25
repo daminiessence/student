@@ -1,0 +1,19 @@
+
+<div class = "tr">
+
+<%= form_for @student, remote: true do |form| %>
+      <span class="td"><%= form.text_field :name, class: 'form-control', style:"width:150px" %></span>
+      <span class="td"><%= form.text_field :ernumber, class: 'form-control', style:"width:150px" %></span>
+      <span class="td"><%= form.text_field :mobile_no, class: 'form-control', style:"width:150px" %></span>
+      <span class="td"><%= form.text_field :student_email, class: 'form-control', style:"width:150px" %></span>
+      <span class="td"><%= form.select :branch_id, options_for_select(Branch.all.collect { |p| [ p.name, p.id ] }), {:prompt => 'Select'}, class: 'form-control', style:"width:150px" %></span>
+      <span class="td"><%= form.select :city_id, options_for_select(City.all.collect { |c| [ c.name, c.id ] }), {:prompt => 'Select'}, class: "form-control", style:"width:150px" %></span>
+      <span class="td"><%= collection_select(:student, :course_ids, @courses, :id, :name, {}, {:multiple => true, class: "form-control"}) %></span>
+      <span class="td"><%= form.text_field :date_of_birth, class: "datepicker form-control input-append date form_datetime", size: "16", style:"width:150px" %></span>
+      <span class="td"></span>
+      <span class="td"><%= form.file_field :photo, class: 'form-control', style:"width:150px" %></span>
+      <span class="td"><%= form.submit "Update", class: 'fa fa-check-square btn btn-primary jsUpdateButton'%></span>
+      <span class="td"><button type="button" class=" btn btn-danger btn-sm" data-dismiss="modal">Close</button></span>
+
+  <% end %>
+</div>

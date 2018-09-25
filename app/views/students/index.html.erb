@@ -1,0 +1,44 @@
+<style>
+  DIV.table table-bordered
+  {
+      display:table;
+  }
+  FORM.tr, DIV.tr, DIV.th
+  {
+      display:table-row;
+  }
+  SPAN.td
+  {
+      display:table-cell;
+      width: 150px;
+  }
+  DIV.tbody
+  {
+      display: table;
+  }
+</style>
+
+<div style="margin: 10px;">
+  <h1><i class="fa fa-graduation-cap" aria-hidden="true"> Students Details List</i></h1>
+  <%= link_to '', new_student_path(@student), class: 'btn btn-info fa fa-plus-circle', 'data-toggle': 'tooltip', title: 'New', 'data-placement': 'bottom', remote: true %>
+<br/><br/>
+</div>
+<div class = "table table-bordered" id = "tablecontent">
+  <div class = "tr">
+    <span class="td" style= "text-align: center;">Name</span>
+    <span class="td" style= "text-align: center;">Enrollment Number</span>
+    <span class="td" style= "text-align: center;">Mobile Number</span>
+    <span class="td" style= "text-align: center;">Student Email</span>
+    <span class="td" style= "text-align: center;">Branch</span>
+    <span class="td" style= "text-align: center;">City</span>
+    <span class="td" style= "text-align: center;">Course</span>
+    <span class="td" style= "text-align: center;">Date of Birth</span>
+    <span class="td" style= "text-align: center;">Profile Image</span>
+    <span class="td" style= "text-align: center;">Action</span>
+  </div>
+  <div class="tbody">
+    <% @students.each do |student| %>
+      <%= render partial: 'row', locals: {student: student} %>
+    <% end %>
+  </div><br>
+</div>

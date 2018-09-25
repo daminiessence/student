@@ -1,0 +1,18 @@
+<div class="tr" id= "jsRow-<%= student.id %>">
+
+  <span class="td"><%= student.name %></span>
+  <span class="td"><%= student.ernumber %></span>
+  <span class="td"><%= student.mobile_no %></span>
+  <span class="td"><%= student.student_email %></span>
+  <span class="td"><%= student.branch.name%></span>
+  <span class="td"><%= student.city.name%></span>
+  <span class="td"><%= student.courses.map {|c| c.name}.join(', ') %></span>
+  <span class="td"><%= student.date_of_birth %></span>
+  <span class="td"><%= image_tag  student.photo.url,:size => "50x50" %></span>
+  <span class="td"><%= link_to ' ', student_path(student),class: 'btn btn-info fa fa-info-circle', 'data-toggle': 'tooltip', title: 'Show', 'data-placement': 'bottom'%></span>
+  <span class="td"><%= link_to ' ', edit_student_path(student), class: 'btn btn-info fa fa-pencil-square-o jsEditButton', 'data-id'=> student.id, remote: true %></span>
+  <span class="td"><%= link_to ' ', student_path(student),
+        method: :delete,
+        data: {confirm: "Are you sure ?"}, class: 'btn btn-info fa fa-trash-o', 'data-toggle': 'tooltip', title: 'Delete', 'data-placement': 'bottom'%></span>
+
+</div>

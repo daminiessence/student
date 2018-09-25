@@ -1,0 +1,14 @@
+<br><h1>Add Your Course</h1><hr><br>
+<%= form_for @course do |form| %>
+<div class="col-md-4 form-group">
+  <%= form.label :name, class: 'form-label' %><br>
+  <%= form.text_field :name, class: 'form-control form-control-sm' %><br>
+  <div class="form-group">
+    <%= collection_select(:course, :student_ids, @students, :id, :name, {}, {:multiple => true, class: "form-control"}) %>
+
+    <%#= collection_check_boxes(:course, :student_ids, @students, :id, :name) %>
+  </div>
+  <%= form.submit "Save Details",style: 'color: white;', class: 'fa fa-floppy-o btn btn-dark'%>
+  <%= link_to 'Back', courses_path, style: 'color: white;', class: 'fa fa-arrow-left btn btn-dark' %>
+
+<% end %>

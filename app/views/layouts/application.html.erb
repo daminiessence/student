@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StudentDetails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" data-spy="affix" data-offset-top="197">
+      <div class="container-fluid d-inline-flex">
+
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <a class="navbar-brand justify-cotent-start" href="#home"></a>
+        </button>
+
+        <h2><i class="fa fa-home" aria-hidden="true" style="color:white;"><%= link_to ' Students App', students_path ,class: 'navbar-brand justify-cotent-start' %></i></h2>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="nav navbar-nav ml-auto" style="float: right">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><%= link_to ' Course', courses_path, class: 'nav-link' %></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#music">Music</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="dropdown nav-item">
+             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" ><i class="caret fa fa-user-circle-o"></i></a>
+              <ul class="dropdown-menu" style="min-width: 7rem;left: -62px;top: 71%;">
+               <li class="nav-item"><a class="nav-link fa fa-info-circle" href="#" style="color:black;"> Details</a></li>
+               <% if user_signed_in? %>
+                 <li><%= link_to " Logout", destroy_user_session_path, method: :delete, class: 'nav-item nav-link fa fa-sign-in', style: 'color:black;'  %></li>
+               <% else %>
+                 <li><%= link_to " Sign Up", new_user_registration_path, class: 'nav-item nav-link fa fa-sign-in', style: 'color:black;' %></li>
+                 <li><%= link_to " Login", new_user_session_path, class: 'nav-item nav-item nav-link fa fa-sign-in', style: 'color:black;' %></li>
+                 <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
+               <% end %>
+               </ul>
+           </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="popup_modal"></div>
+
+    <%= yield %>
+  </body>
+</html>
